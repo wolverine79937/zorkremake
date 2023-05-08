@@ -1,0 +1,43 @@
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.csproj.user
+*.vcxproj.user
+*.sln.docstates
+bin/
+obj/
+Debug/
+Release/
+
+# NuGet packages
+packages/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+bld/
+[Bb]in/
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.ide
+*.suo
+*.userprefs
+*.usertasks
+
+# Build results
+bin/
+obj/
+
+# Misc
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
