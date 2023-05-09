@@ -7,6 +7,9 @@ class Program
         // Here we will initializ ethe integer variables for score and moves.
         int score = 0;
         int moves = 0;
+        const int bufferSize = 20;
+        string[] outputBuffer = new string[bufferSize];
+        int bufferPos = 0;
 
         // And now we write the initial status bar to the console
         UpdateStatusBar(score, moves);
@@ -35,10 +38,10 @@ class Program
             {
                 break;
             }
-            else
+            else if (input.ToLower() == "help")
             {
                 Console.SetCursorPosition(0, 3);
-                Console.WriteLine("Invalid command.");
+                Console.WriteLine("Commands: quit, help, look, go <direction>");
                 UpdateStatusBar(score, moves);
             }
         }
