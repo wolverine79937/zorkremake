@@ -30,6 +30,17 @@ class Program
             Console.Write(new string(' ', Console.WindowWidth)); // This clears row 3
             Console.SetCursorPosition(0, 4); // And now we move the cursor to row 4 of the console
             Console.Write(new string(' ', Console.WindowWidth)); // Clear row 4.
+
+            if (input.ToLower() == "quit")
+            {
+                break;
+            }
+            else
+            {
+                Console.SetCursorPosition(0, 3);
+                Console.WriteLine("Invalid command.");
+                UpdateStatusBar(score, moves);
+            }
         }
     }
 
