@@ -39,19 +39,55 @@ class Program
             Console.SetCursorPosition(0, Console.WindowHeight - 1);
             Console.Write("> ");
 
-            string input = Console.ReadLine();
+            ConsoleKeyInfo keyInfo = Console.ReadKey(); // This is where we read a single key.
 
-            if (input.ToLower() == "quit")
+            if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-                Console.WriteLine("Goodbye!");
-                break;
+                outputBuffer[bufferPos % bufferSize] = "You cannot go north at this time.";
+                bufferPos++;
             }
-            else if (input.ToLower() == "help")
+            else if (keyInfo.Key == ConsoleKey.DownArrow)
+            {
+                outputBuffer[bufferPos % bufferSize] = "You cannot go south at this time.";
+                bufferPos++;
+            }
+            else if (keyInfo.Key == ConsoleKey.LeftArrow)
+            {
+                outputBuffer[bufferPos % bufferSize] = "You cannot go west at this time.";
+                bufferPos++;
+            }
+            else if (keyInfo.Key == ConsoleKey.RightArrow)
+            {
+                outputBuffer[bufferPos % bufferSize] = "You cannot go east at this time.";
+                bufferPos++;
+            }
+            else if (keyInfo.Key == ConsoleKey.PageUp)
+            {
+                outputBuffer[bufferPos % bufferSize] = "You cannot go up a this time.";
+                bufferPos++;
+            }
+            else if (keyInfo.Key == ConsoleKey.PageDown)
+            {
+                outputBuffer[bufferPos % bufferSize] = "You cannot go down at this time.";
+                bufferPos++;
+            }
+            else
+            {
+                string command = keyInfo.KeyChar + Console.ReadLine();
+
+                if (command.ToLower() == "quit")
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+                }
+            }
+
+/*          else if (input.ToLower() == "help")
             {
                 outputBuffer[bufferPos % bufferSize] = "Commands: quit, help, look, go <direction>";
                 bufferPos++;
             }
-        }
+*/        }
     }
 
     static void UpdateStatusBar(int score, int moves)
