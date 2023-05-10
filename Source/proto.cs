@@ -10,6 +10,7 @@ class Program
         const int bufferSize = 20;
         string[] outputBuffer = new string[bufferSize];
         int bufferPos = 0;
+        int width = Console.WindowWidth;
 
         // And now we write the initial status bar to the console
         UpdateStatusBar(score, moves);
@@ -79,6 +80,16 @@ class Program
                 {
                     Console.WriteLine("Goodbye!");
                     break;
+                }
+                else if (command.ToLower() == "help")
+                {
+                   outputBuffer[bufferPos % bufferSize] = "Welcome to Zork retold version 0.0.0. This is a prototype. And in this prototype, there is not much you can do yet. You can use the standard four arrow keys to move: North (up), South (down), East (right) and West (left). You can also go up (pageup) and down (pagedown) as well as a handful of commands: 'quit' will end the game.";
+                   bufferPos++;
+                }
+                else if (command.ToLower() == "debug")
+                {
+                    Console.WriteLine(width);
+                    bufferPos++;
                 }
             }
 
