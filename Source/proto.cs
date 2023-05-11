@@ -41,6 +41,10 @@ class Program
             Console.Write("> ");
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(); // This is where we read a single key.
+            string command = keyInfo.KeyChar + Console.ReadLine();
+            Console.SetCursorPosition(0, Console.WindowHeight - 1);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.WindowHeight - 1);
 
             if (keyInfo.Key == ConsoleKey.UpArrow)
             {
@@ -74,8 +78,6 @@ class Program
             }
             else
             {
-                string command = keyInfo.KeyChar + Console.ReadLine();
-
                 if (command.ToLower() == "quit")
                 {
                     Console.WriteLine("Goodbye!");
