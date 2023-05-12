@@ -14,9 +14,55 @@ class Program
         int height = Console.WindowHeight;
         string room = string.Format("West of House");
 
-        // This just prints something out so that we know how the program will respond when output is encountered.
-        UpdateStatusBar(0, 0);
-    }
+        /* We are going to implement a game loop now and hopefully our input line at the bottom of the shell
+         * will reset back to > whenever the uses issues a command by pressing the enter key.
+        */
+        // We are going to filter input for the enter key so that when that key is pressed, the input line resets.
+
+        while (true)
+        {
+            UpdateStatusBar(score, moves);
+            Console.SetCursorPosition(0, Console.WindowHeight - 1);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write("> ");
+
+            string input = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(input))
+            {
+                Console.SetCursorPosition(2, Console.WindowHeight - 1);
+                Console.Write(new string(' ', Console.WindowWidth - 2));
+//                Console.Write(" ", Console.WindowWidth - 2);
+                Console.SetCursorPosition(0, Console.WindowHeight - 1);
+            }
+        }
+/*            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            if (keyInfo.Key == ConsoleKey.Enter)
+            {
+                string input = Console.ReadLine();
+                if (!string.IsNullOrEmpty(input))
+                {
+                    Console.SetCursorPosition(0, Console.WindowHeight - 1);
+                    Console.Write("> ", Console.WindowWidth - 2);
+                    Console.SetCursorPosition(0, Console.WindowHeight - 1);
+                }
+                else
+                {
+                    keyInfo = Console.ReadKey();
+                }
+            }
+
+             string input = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(input) && keyInfo.Key == ConsoleKey.Enter)
+            {
+                Console.SetCursorPosition(2, Console.WindowHeight - 1);
+                Console.Write(new string(' ', Console.WindowWidth - 2));
+                Console.SetCursorPosition(2, Console.WindowHeight - 1);
+            }*/
+        }
 
     // This function is going to be for managing the status bar at the top of the screen.
     static void UpdateStatusBar(int score, int moves)
@@ -41,11 +87,6 @@ class Program
         Console.Write("Moves: " + moves.ToString().PadLeft(5));
         
         // This is the very end of the status bar line.
-        Console.Write("\n");
-
-        // And now we have to remember to reset the console colors so we don't accidentally blind someone. LOL
-        Console.ForegroundColor = ConsoleColor.Black;
-        Console.BackgroundColor = ConsoleColor.Gray;
-        
+        Console.Write("\n");        
     }
 }
