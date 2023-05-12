@@ -33,36 +33,12 @@ class Program
             {
                 Console.SetCursorPosition(2, Console.WindowHeight - 1);
                 Console.Write(new string(' ', Console.WindowWidth - 2));
-//                Console.Write(" ", Console.WindowWidth - 2);
                 Console.SetCursorPosition(0, Console.WindowHeight - 1);
+                moves++;
+
             }
         }
-/*            ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-            if (keyInfo.Key == ConsoleKey.Enter)
-            {
-                string input = Console.ReadLine();
-                if (!string.IsNullOrEmpty(input))
-                {
-                    Console.SetCursorPosition(0, Console.WindowHeight - 1);
-                    Console.Write("> ", Console.WindowWidth - 2);
-                    Console.SetCursorPosition(0, Console.WindowHeight - 1);
-                }
-                else
-                {
-                    keyInfo = Console.ReadKey();
-                }
-            }
-
-             string input = Console.ReadLine();
-
-            if (!string.IsNullOrEmpty(input) && keyInfo.Key == ConsoleKey.Enter)
-            {
-                Console.SetCursorPosition(2, Console.WindowHeight - 1);
-                Console.Write(new string(' ', Console.WindowWidth - 2));
-                Console.SetCursorPosition(2, Console.WindowHeight - 1);
-            }*/
-        }
+    }
 
     // This function is going to be for managing the status bar at the top of the screen.
     static void UpdateStatusBar(int score, int moves)
@@ -85,8 +61,8 @@ class Program
         // And now we are going to write the number of moves in the right column.
         Console.SetCursorPosition(Console.WindowWidth - 16, 0);
         Console.Write("Moves: " + moves.ToString().PadLeft(5));
-        
+
         // This is the very end of the status bar line.
-        Console.Write("\n");        
+        Console.Write("\n");
     }
 }
